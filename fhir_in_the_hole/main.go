@@ -1,23 +1,23 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"os"
 	"path/filepath"
 	"strings"
 	"time"
-	"fmt" 
 
 	"github.com/pocketbase/pocketbase"
 	"github.com/pocketbase/pocketbase/apis"
 	"github.com/pocketbase/pocketbase/core"
+	"github.com/pocketbase/pocketbase/forms"
 	"github.com/pocketbase/pocketbase/models"
+	"github.com/pocketbase/pocketbase/models/schema"
 	"github.com/pocketbase/pocketbase/plugins/ghupdate"
 	"github.com/pocketbase/pocketbase/plugins/jsvm"
 	"github.com/pocketbase/pocketbase/plugins/migratecmd"
-	"github.com/pocketbase/pocketbase/forms"
 	"github.com/pocketbase/pocketbase/tools/types"
-	"github.com/pocketbase/pocketbase/models/schema"
 )
 
 func main() {
@@ -132,7 +132,6 @@ func main() {
 		return nil
 	})
 
-
 	if err := app.Start(); err != nil {
 		log.Fatal(err)
 	}
@@ -149,115 +148,115 @@ func defaultPublicDir() string {
 }
 
 func createInitialCollections(app *pocketbase.PocketBase) {
-    db := app.Dao().DB()
+	db := app.Dao().DB()
 
-    if collections == nil {
-        log.Println("No collections to create")
-        return
-    }
+	if collections == nil {
+		log.Println("No collections to create")
+		return
+	}
 
-    for i, collection := range collections {
-        log.Printf("Processing collection %d: %v", i, collection)
+	for i, collection := range collections {
+		log.Printf("Processing collection %d: %v", i, collection)
 
-        collectionName, ok := collection["name"].(string)
-        if !ok {
-            log.Printf("Invalid or missing collection name for collection %d", i)
-            continue
-        }
+		collectionName, ok := collection["name"].(string)
+		if !ok {
+			log.Printf("Invalid or missing collection name for collection %d", i)
+			continue
+		}
 
-        // Check if a collection with the same name (case insensitive) already exists
-        existingCollection, err := app.Dao().FindCollectionByNameOrId(collectionName)
-        if err == nil && existingCollection != nil {
-            log.Printf("Collection '%s' already exists", collectionName)
-            continue
-        }
+		// Check if a collection with the same name (case insensitive) already exists
+		existingCollection, err := app.Dao().FindCollectionByNameOrId(collectionName)
+		if err == nil && existingCollection != nil {
+			log.Printf("Collection '%s' already exists", collectionName)
+			continue
+		}
 
-        schemaFields, ok := collection["schema"].([]map[string]interface{})
-        if !ok {
-            log.Printf("Invalid or missing schema for collection '%s'", collectionName)
-            continue
-        }
+		schemaFields, ok := collection["schema"].([]map[string]interface{})
+		if !ok {
+			log.Printf("Invalid or missing schema for collection '%s'", collectionName)
+			continue
+		}
 
-        var indexes []map[string]interface{}
-        if v, ok := collection["indexes"]; ok {
-            indexes, ok = v.([]map[string]interface{})
-            if !ok {
-                log.Printf("Invalid indexes for collection '%s'", collectionName)
-                continue
-            }
-        }
+		var indexes []map[string]interface{}
+		if v, ok := collection["indexes"]; ok {
+			indexes, ok = v.([]map[string]interface{})
+			if !ok {
+				log.Printf("Invalid indexes for collection '%s'", collectionName)
+				continue
+			}
+		}
 
-        coll := &models.Collection{}
-        form := forms.NewCollectionUpsert(app, coll)
-        form.Name = collectionName
-        form.Type = models.CollectionTypeBase
-        form.ListRule = nil
-        form.ViewRule = types.Pointer("@request.auth.id != ''")
-        form.CreateRule = types.Pointer("")
-        form.UpdateRule = types.Pointer("@request.auth.id != ''")
-        form.DeleteRule = nil
+		coll := &models.Collection{}
+		form := forms.NewCollectionUpsert(app, coll)
+		form.Name = collectionName
+		form.Type = models.CollectionTypeBase
+		form.ListRule = nil
+		form.ViewRule = types.Pointer("@request.auth.id != ''")
+		form.CreateRule = types.Pointer("")
+		form.UpdateRule = types.Pointer("@request.auth.id != ''")
+		form.DeleteRule = nil
 
-        for _, field := range schemaFields {
-            fieldName, ok := field["name"].(string)
-            if !ok {
-                log.Printf("Invalid or missing field name in collection '%s'", collectionName)
-                continue
-            }
+		for _, field := range schemaFields {
+			fieldName, ok := field["name"].(string)
+			if !ok {
+				log.Printf("Invalid or missing field name in collection '%s'", collectionName)
+				continue
+			}
 
-            fieldType, ok := field["type"].(string)
-            if !ok {
-                log.Printf("Invalid or missing field type for field '%s' in collection '%s'", fieldName, collectionName)
-                continue
-            }
+			fieldType, ok := field["type"].(string)
+			if !ok {
+				log.Printf("Invalid or missing field type for field '%s' in collection '%s'", fieldName, collectionName)
+				continue
+			}
 
-            fieldOptions, ok := field["options"].(map[string]interface{})
-            if !ok {
-                fieldOptions = map[string]interface{}{}
-            }
+			fieldOptions, ok := field["options"].(map[string]interface{})
+			if !ok {
+				fieldOptions = map[string]interface{}{}
+			}
 
-            form.Schema.AddField(&schema.SchemaField{
-                Name:     fieldName,
-                Type:     fieldType,
-                Required: true,
-                Options:  fieldOptions,
-            })
-        }
+			form.Schema.AddField(&schema.SchemaField{
+				Name:     fieldName,
+				Type:     fieldType,
+				Required: true,
+				Options:  fieldOptions,
+			})
+		}
 
-        if err := form.Submit(); err != nil {
-            log.Printf("Failed to create collection '%s': %v", collectionName, err)
-            continue
-        } else {
-            log.Printf("Collection '%s' created successfully", collectionName)
-        }
+		if err := form.Submit(); err != nil {
+			log.Printf("Failed to create collection '%s': %v", collectionName, err)
+			continue
+		} else {
+			log.Printf("Collection '%s' created successfully", collectionName)
+		}
 
-        for _, index := range indexes {
-            indexName, ok := index["name"].(string)
-            if !ok {
-                log.Printf("Invalid or missing index name for collection '%s'", collectionName)
-                continue
-            }
+		for _, index := range indexes {
+			indexName, ok := index["name"].(string)
+			if !ok {
+				log.Printf("Invalid or missing index name for collection '%s'", collectionName)
+				continue
+			}
 
-            indexType, ok := index["type"].(string)
-            if !ok {
-                log.Printf("Invalid or missing index type for collection '%s'", collectionName)
-                continue
-            }
+			indexType, ok := index["type"].(string)
+			if !ok {
+				log.Printf("Invalid or missing index type for collection '%s'", collectionName)
+				continue
+			}
 
-            fields, ok := index["fields"].([]string)
-            if !ok {
-                log.Printf("Invalid or missing index fields for collection '%s'", collectionName)
-                continue
-            }
+			fields, ok := index["fields"].([]string)
+			if !ok {
+				log.Printf("Invalid or missing index fields for collection '%s'", collectionName)
+				continue
+			}
 
-            fieldsStr := strings.Join(fields, ", ")
-            query := fmt.Sprintf("CREATE %s INDEX %s ON %s (%s);", indexType, indexName, collectionName, fieldsStr)
-            if _, err := db.NewQuery(query).Execute(); err != nil {
-                log.Printf("Failed to create index '%s' on collection '%s': %v", indexName, collectionName, err)
-            } else {
-                log.Printf("Index '%s' created successfully on collection '%s'", indexName, collectionName)
-            }
-        }
-    }
+			fieldsStr := strings.Join(fields, ", ")
+			query := fmt.Sprintf("CREATE %s INDEX %s ON %s (%s);", indexType, indexName, collectionName, fieldsStr)
+			if _, err := db.NewQuery(query).Execute(); err != nil {
+				log.Printf("Failed to create index '%s' on collection '%s': %v", indexName, collectionName, err)
+			} else {
+				log.Printf("Index '%s' created successfully on collection '%s'", indexName, collectionName)
+			}
+		}
+	}
 }
 
 var collections = []map[string]interface{}{
