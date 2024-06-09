@@ -32,7 +32,7 @@ func main() {
 	app.RootCmd.PersistentFlags().StringVar(
 		&hooksDir,
 		"hooksDir",
-		"",
+		"./hooks", // default directory for hooks
 		"the directory with the JS app hooks",
 	)
 
@@ -40,7 +40,7 @@ func main() {
 	app.RootCmd.PersistentFlags().BoolVar(
 		&hooksWatch,
 		"hooksWatch",
-		true,
+		true, // default to true
 		"auto restart the app on pb_hooks file change",
 	)
 
@@ -48,7 +48,7 @@ func main() {
 	app.RootCmd.PersistentFlags().IntVar(
 		&hooksPool,
 		"hooksPool",
-		25,
+		25, // default pool size
 		"the total prewarm goja.Runtime instances for the JS app hooks execution",
 	)
 
@@ -56,7 +56,7 @@ func main() {
 	app.RootCmd.PersistentFlags().StringVar(
 		&migrationsDir,
 		"migrationsDir",
-		"",
+		"./migrations", // default directory for migrations
 		"the directory with the user defined migrations",
 	)
 
@@ -143,7 +143,14 @@ func main() {
 
 // registerHooks registers any custom hooks for the application.
 func registerHooks(app *pocketbase.PocketBase) {
-	// Example hook: Log each request
+	// Register middleware to log each request
+	registerRequestLoggingHook(app)
+
+	// Add more hooks as needed
+}
+
+// registerRequestLoggingHook logs each request to the server
+func registerRequestLoggingHook(app *pocketbase.PocketBase) {
 	app.OnBeforeServe().Add(func(e *core.ServeEvent) error {
 		e.Router.Use(func(next echo.HandlerFunc) echo.HandlerFunc {
 			return func(c echo.Context) error {
@@ -151,11 +158,8 @@ func registerHooks(app *pocketbase.PocketBase) {
 				return next(c)
 			}
 		})
-
 		return nil
 	})
-
-	// Add more hooks as needed
 }
 
 // the default pb_public dir location is relative to the executable

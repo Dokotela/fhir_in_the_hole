@@ -1,0 +1,11 @@
+name: fhir_in_the_whole
+description: Starting point for Pocketbase for FHIR
+version: 0.1.0
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  fhir_r4: 
+    path: ../../new_fhir/fhir_r4
+  pocketbase: ^0.18.1
