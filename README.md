@@ -1,3 +1,15 @@
+# FHIR in the Hole
+
+This is some add-on functionality for [PocketBase](https://pocketbase.io) (see below).
+
+## Setup
+
+1. Go and [download Pocketbase](https://pocketbase.io/docs) - whichever is right for your system
+2. Unzip it 
+3. Copy it into the pockebase_server directory, feel free to add folders to keep it clean
+4. Go to wherever your pocketbase file exists, on the command line, run ```$ ./pocketbase serve```
+
+
 <p align="center">
     <a href="https://pocketbase.io" target="_blank" rel="noopener">
         <img src="https://i.imgur.com/5qimnm5.png" alt="PocketBase - open source backend in 1 file" />
