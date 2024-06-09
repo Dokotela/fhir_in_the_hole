@@ -12,5 +12,5 @@ go mod init myapp && go mod tidy
 
 go run main.go serve
 
-GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build 
+CGO_ENABLED=0 go build 
 
