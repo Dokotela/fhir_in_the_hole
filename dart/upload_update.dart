@@ -47,14 +47,14 @@ Future<void> main() async {
           );
     } catch (e) {
       print('Error creating or updating record: $e');
-      // if (e is ClientException && e.statusCode == 404) {
-      //   await pb
-      //       .collection(
-      //           resource['resource']['resourceType'].toString().toLowerCase())
-      //       .create(body: resource);
-      // } else {
-      //   rethrow;
-      // }
+      if (e is ClientException && e.statusCode == 404) {
+        await pb
+            .collection(
+                resource['resource']['resourceType'].toString().toLowerCase())
+            .create(body: resource);
+      } else {
+        rethrow;
+      }
     }
   }
 

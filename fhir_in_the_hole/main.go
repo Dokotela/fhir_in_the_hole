@@ -187,6 +187,9 @@ func createInitialCollections(app *pocketbase.PocketBase) {
 			continue
 		}
 
+		// Convert the collection name to lowercase
+		collectionName = strings.ToLower(collectionName)
+
 		existingCollection, err := app.Dao().FindCollectionByNameOrId(collectionName)
 		if err == nil && existingCollection != nil {
 			log.Printf("Collection '%s' already exists", collectionName)
