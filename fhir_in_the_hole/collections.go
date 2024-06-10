@@ -5,7 +5,6 @@ var collections = []map[string]interface{}{
 	{
 		"name": "Account",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -20,7 +19,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "ActivityDefinition",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -35,7 +33,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "AdministrableProductDefinition",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -50,7 +47,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "AdverseEvent",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -65,7 +61,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "AllergyIntolerance",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -80,7 +75,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "Appointment",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -95,7 +89,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "AppointmentResponse",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -110,7 +103,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "AuditEvent",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -125,7 +117,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "Basic",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -140,7 +131,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "Binary",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -155,7 +145,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "BiologicallyDerivedProduct",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -170,7 +159,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "BodyStructure",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -185,7 +173,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "Bundle",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -200,7 +187,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "CapabilityStatement",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -215,7 +201,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "CarePlan",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -230,7 +215,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "CareTeam",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -245,7 +229,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "CatalogEntry",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -260,7 +243,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "ChargeItem",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -275,7 +257,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "ChargeItemDefinition",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -290,7 +271,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "Citation",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -305,7 +285,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "Claim",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -320,7 +299,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "ClaimResponse",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -335,7 +313,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "ClinicalImpression",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -350,7 +327,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "ClinicalUseDefinition",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -365,7 +341,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "CodeSystem",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -380,7 +355,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "Communication",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -395,7 +369,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "CommunicationRequest",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -410,7 +383,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "CompartmentDefinition",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -425,7 +397,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "Composition",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -440,7 +411,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "ConceptMap",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -455,7 +425,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "Condition",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -470,7 +439,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "Consent",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -485,7 +453,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "Contract",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -500,7 +467,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "Coverage",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -515,7 +481,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "CoverageEligibilityRequest",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -530,7 +495,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "CoverageEligibilityResponse",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -545,7 +509,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "DetectedIssue",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -560,7 +523,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "Device",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -575,7 +537,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "DeviceDefinition",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -590,7 +551,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "DeviceMetric",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -605,7 +565,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "DeviceRequest",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -620,7 +579,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "DeviceUseStatement",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -635,7 +593,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "DiagnosticReport",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -650,7 +607,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "DocumentManifest",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -665,7 +621,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "DocumentReference",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -680,7 +635,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "Encounter",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -695,7 +649,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "Endpoint",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -710,7 +663,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "EnrollmentRequest",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -725,7 +677,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "EnrollmentResponse",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -740,7 +691,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "EpisodeOfCare",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -755,7 +705,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "EventDefinition",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -770,7 +719,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "Evidence",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -785,7 +733,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "EvidenceReport",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -800,7 +747,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "EvidenceVariable",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -815,7 +761,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "ExampleScenario",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -830,7 +775,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "ExplanationOfBenefit",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -860,7 +804,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "Flag",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -875,7 +818,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "Goal",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -890,7 +832,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "GraphDefinition",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -905,7 +846,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "Group",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -920,7 +860,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "GuidanceResponse",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -935,7 +874,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "HealthcareService",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -950,7 +888,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "ImagingStudy",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -965,7 +902,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "Immunization",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -980,7 +916,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "ImmunizationEvaluation",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -995,7 +930,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "ImmunizationRecommendation",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1010,7 +944,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "ImplementationGuide",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1025,7 +958,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "Ingredient",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1040,7 +972,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "InsurancePlan",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1055,7 +986,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "Invoice",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1070,7 +1000,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "Library",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1085,7 +1014,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "Linkage",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1100,7 +1028,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "List",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1115,7 +1042,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "Location",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1130,7 +1056,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "ManufacturedItemDefinition",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1145,7 +1070,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "Measure",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1160,7 +1084,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "MeasureReport",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1175,7 +1098,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "Media",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1190,7 +1112,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "Medication",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1205,7 +1126,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "MedicationAdministration",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1220,7 +1140,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "MedicationDispense",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1235,7 +1154,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "MedicationKnowledge",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1250,7 +1168,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "MedicationRequest",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1265,7 +1182,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "MedicationStatement",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1280,7 +1196,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "MedicinalProductDefinition",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1295,7 +1210,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "MessageDefinition",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1310,7 +1224,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "MessageHeader",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1325,7 +1238,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "MolecularSequence",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1340,7 +1252,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "NamingSystem",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1355,7 +1266,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "NutritionOrder",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1370,7 +1280,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "NutritionProduct",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1385,7 +1294,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "Observation",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1400,7 +1308,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "ObservationDefinition",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1415,7 +1322,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "OperationDefinition",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1430,7 +1336,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "OperationOutcome",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1445,7 +1350,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "Organization",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1460,7 +1364,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "OrganizationAffiliation",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1475,7 +1378,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "PackagedProductDefinition",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1490,7 +1392,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "Parameters",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1505,7 +1406,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "Patient",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1520,7 +1420,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "PaymentNotice",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1535,7 +1434,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "PaymentReconciliation",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1550,7 +1448,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "Person",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1565,7 +1462,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "PlanDefinition",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1580,7 +1476,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "Practitioner",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1595,7 +1490,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "PractitionerRole",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1610,7 +1504,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "Procedure",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1625,7 +1518,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "Provenance",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1640,7 +1532,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "Questionnaire",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1655,7 +1546,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "QuestionnaireResponse",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1670,7 +1560,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "RegulatedAuthorization",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1685,7 +1574,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "RelatedPerson",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1700,7 +1588,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "RequestGroup",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1715,7 +1602,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "ResearchDefinition",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1730,7 +1616,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "ResearchElementDefinition",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1745,7 +1630,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "ResearchStudy",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1760,7 +1644,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "ResearchSubject",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1775,7 +1658,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "RiskAssessment",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1790,7 +1672,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "Schedule",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1805,7 +1686,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "SearchParameter",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1820,7 +1700,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "ServiceRequest",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1835,7 +1714,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "Slot",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1850,7 +1728,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "Specimen",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1865,7 +1742,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "SpecimenDefinition",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1880,7 +1756,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "StructureDefinition",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1895,7 +1770,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "StructureMap",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1910,7 +1784,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "Subscription",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1925,7 +1798,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "SubscriptionStatus",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1940,7 +1812,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "SubscriptionTopic",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1955,7 +1826,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "Substance",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1970,7 +1840,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "SubstanceDefinition",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -1985,7 +1854,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "SupplyDelivery",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -2000,7 +1868,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "SupplyRequest",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -2015,7 +1882,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "Task",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -2030,7 +1896,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "TerminologyCapabilities",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -2045,7 +1910,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "TestReport",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -2060,7 +1924,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "TestScript",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -2075,7 +1938,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "ValueSet",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -2090,7 +1952,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "VerificationResult",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},
@@ -2105,7 +1966,6 @@ var collections = []map[string]interface{}{
 	}, {
 		"name": "VisionPrescription",
 		"schema": []map[string]interface{}{
-			{"name": "fhirId", "type": "text"},
 			{"name": "versionId", "type": "number"},
 			{"name": "resource", "type": "json", "options": map[string]interface{}{"maxSize": 5242880}},
 		},

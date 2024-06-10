@@ -4,6 +4,8 @@ rm -r pb_data
 
 rm -r pb_migrations
 
+rm -r migrations
+
 rm go.mod
 
 rm go.sum

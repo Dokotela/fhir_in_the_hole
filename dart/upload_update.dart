@@ -1,14 +1,13 @@
 import 'package:pocketbase/pocketbase.dart';
 
-import 'pocketbase_id.dart';
-
 Future<void> main() async {
   final PocketBase pb = PocketBase('http://127.0.0.1:8090');
 
   // Authenticate
   await pb.admins.authWithPassword('grey@fhirfli.dev', '01 password');
 
-  final String pocketbaseId = PocketbaseId.generate();
+  final String pocketbaseId = '4260a7372075e64';
+  //PocketbaseId.generate();
 
   // Define the account records
   final account1 = {
@@ -38,13 +37,17 @@ Future<void> main() async {
   // Function to create or update a record
   Future<void> createOrUpdateRecord(Map<String, dynamic> resource) async {
     try {
-      await pb
-          .collection(
-              resource['resource']['resourceType'].toString().toLowerCase())
-          .update(
-            resource['id'] as String,
-            body: resource,
-          );
+      if (resource['id'] == null) {
+        throw Exception('Record ID is required');
+      }
+      final RecordService recordService = pb.collection(
+          resource['resource']['resourceType'].toString().toLowerCase());
+      print('got records service');
+      await recordService.update(
+        resource['id'] as String,
+        body: resource,
+      );
+      print('Record created or updated successfully.');
     } catch (e) {
       print('Error creating or updating record: $e');
       if (e is ClientException && e.statusCode == 404) {
