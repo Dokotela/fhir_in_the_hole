@@ -59,7 +59,9 @@ Future<void> main() async {
   }
 
   // Create or update the accounts
+  print('Creating or updating accounts...');
   await createOrUpdateRecord(account1);
+  print('Account 1 created or updated successfully.');
   await createOrUpdateRecord(account2);
 
   // Print a message to confirm the operation

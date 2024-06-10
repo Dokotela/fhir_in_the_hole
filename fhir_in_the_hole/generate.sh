@@ -8,9 +8,10 @@ rm go.mod
 
 rm go.sum
 
-go mod init myapp && go mod tidy
+rm myapp
 
-go run main.go serve
+go mod init myapp && go mod tidy
 
 CGO_ENABLED=0 go build 
 
+./myapp serve
