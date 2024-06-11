@@ -3,8 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"log"
-	"reflect"
+	"strings"
 	"time"
 
 	"github.com/pocketbase/pocketbase"
@@ -20,37 +19,43 @@ func handleResourceCreation(app *pocketbase.PocketBase, e *core.ModelEvent) erro
 		return nil
 	}
 
-	// Should be a ResourceType
+	// If this is a historical record, we don't need to update anything since we're
+	// just copying it over
 	collectionName := resource.Collection().Name
+	if strings.HasSuffix(collectionName, "history") {
+		return nil
+	}
+
+	// Check if the collection is versioned, if not, we're done
 	if !isVersionedCollection(app, collectionName) {
-		log.Printf("collection is not versioned")
 		return nil
 	}
 
 	// Get the resourceField (which is the resource JSON)
 	resourceField := resource.Get("resource")
+
 	// Get the resource data - we need for validation
 	resourceData, err := getResourceData(resourceField)
 	if err != nil {
-		log.Printf("failed to get resource data: %v", err)
 		return fmt.Errorf("failed to get resource data: %w", err)
 	}
 
 	// Validate the resource data
 	if err := validateFHIRResource(resourceData); err != nil {
-		log.Printf("validation error: %v", err)
 		return fmt.Errorf("validation error: %w", err)
 	}
 
 	// Update the resource (apply id if none, update versionid and lastUpdated)
 	updatedResourceBytes, err := updateResourceJson(resourceData, 0, resource.Id, resource.Updated.Time().UTC().Format(time.RFC3339))
 	if err != nil {
-		log.Printf("failed to update resource meta: %v", err)
 		return fmt.Errorf("failed to update resource meta: %w", err)
 	}
 
 	// Set the updated resource back to the record
 	resource.Set("resource", types.JsonRaw(updatedResourceBytes))
+
+	// Again, since this is the creation, the versionId is 0
+	resource.Set("versionId", 0)
 
 	return nil
 }
@@ -65,68 +70,71 @@ func handleResourceUpdate(app *pocketbase.PocketBase, e *core.ModelEvent) error 
 	// Should be a ResourceType
 	collectionName := newResourceVersion.Collection().Name
 	if !isVersionedCollection(app, collectionName) {
-		log.Printf("collection is not versioned")
 		return nil
 	}
 
 	// Get the resourceField (which is the resource JSON)
 	resourceField := newResourceVersion.Get("resource")
+
 	// Get the resource data - we need for validation
 	resourceData, err := getResourceData(resourceField)
 	if err != nil {
-		log.Printf("failed to get resource data: %v", err)
 		return fmt.Errorf("failed to get resource data: %w", err)
 	}
 
 	// Validate the resource data
 	if err := validateFHIRResource(resourceData); err != nil {
-		log.Printf("validation error: %v", err)
 		return fmt.Errorf("validation error: %w", err)
 	}
 
-	// Now move the current resource
+	// Now move the current resource - remember, this will end up calling
+	// handleResourceCreation eventually - which can cause issues if you're unaware
 	currentResourceVersion, err := app.Dao().FindRecordById(collectionName, newResourceVersion.Id)
 	if err != nil {
-		log.Printf("failed to fetch existing resource: %v", err)
 		return fmt.Errorf("failed to fetch existing resource: %w", err)
 	}
 
-	// Store the existing resource in the history table
+	// Get the history table for this resource
 	historyCollectionName := collectionName + "history"
 	historyCollection, err := app.Dao().FindCollectionByNameOrId(historyCollectionName)
 	if err != nil {
-		log.Printf("failed to create history collection: %v", err)
 		return fmt.Errorf("failed to create history collection: %w", err)
 	}
-	log.Printf("history collection: %s", reflect.TypeOf(historyCollection))
 
+	// Create a new record in the history table
 	historicalResourceVersion := models.NewRecord(historyCollection)
+
+	// Copy over the values
 	historicalResourceVersion.Set("fhirId", currentResourceVersion.Id)
 	historicalResourceVersion.Set("resourceType", currentResourceVersion.Get("resourceType"))
 	historicalResourceVersionId := currentResourceVersion.GetInt("versionId")
+	updatedVersionId := historicalResourceVersionId + 1
 	historicalResourceVersion.Set("versionId", historicalResourceVersionId)
 	historicalResourceVersion.Set("resource", currentResourceVersion.Get("resource"))
 
+	// Finish saving the old version of the record
 	saveErr := app.Dao().SaveRecord(historicalResourceVersion)
 	if saveErr != nil {
-		log.Printf("failed to save resource to history table: %v", saveErr)
 		return fmt.Errorf("failed to save resource to history table: %w", saveErr)
 	}
-	// Update the resource (apply id if none, update versionid and lastUpdated)
-	updatedResourceBytes, err := updateResourceJson(resourceData, historicalResourceVersionId, newResourceVersion.Id, newResourceVersion.Updated.Time().UTC().Format(time.RFC3339))
+
+	// Update the resource (apply id if none, update versionId and lastUpdated)
+	updatedResourceBytes, err := updateResourceJson(resourceData, updatedVersionId, newResourceVersion.Id, newResourceVersion.Updated.Time().UTC().Format(time.RFC3339))
 	if err != nil {
-		log.Printf("failed to update resource meta: %v", err)
 		return fmt.Errorf("failed to update resource meta: %w", err)
 	}
 
 	// Set the updated resource back to the record
 	newResourceVersion.Set("resource", types.JsonRaw(updatedResourceBytes))
-	newResourceVersion.Set("versionId", currentResourceVersion.GetInt("versionId"))
+
+	// Be sure to update the versionId in the table, not just the JSON
+	newResourceVersion.Set("versionId", updatedVersionId)
 
 	return nil
 }
 
 func updateResourceJson(resourceData []byte, newVersionId int, id string, lastUpdated string) (updatedResourceBytes []byte, err error) {
+
 	// Parse the resource JSON
 	var resourceJson map[string]interface{}
 	if err := json.Unmarshal(resourceData, &resourceJson); err != nil {
@@ -140,11 +148,10 @@ func updateResourceJson(resourceData []byte, newVersionId int, id string, lastUp
 	if resourceJson["meta"] == nil {
 		resourceJson["meta"] = map[string]interface{}{}
 	}
+
 	meta := resourceJson["meta"].(map[string]interface{})
 	meta["versionId"] = fmt.Sprintf("%d", newVersionId)
-	log.Printf("Last Updated: %s", lastUpdated)
 	meta["lastUpdated"] = lastUpdated
-	// Marshal the updated resource back to JSON
 	return json.Marshal(resourceJson)
 }
 
