@@ -10,6 +10,7 @@ Future<void> main() async {
   print('Creating or updating accounts...');
   // await createOrUpdateRecord(pb, account1);
 
+  await createOrUpdateRecord(pb, account0);
   await createOrUpdateRecord(pb, account1);
   await createOrUpdateRecord(pb, account2);
   await createOrUpdateRecord(pb, account3);
@@ -49,6 +50,19 @@ Future<void> createOrUpdateRecord(
 
 final String pocketbaseId = '4260a7372075e64';
 //PocketbaseId.generate();
+
+final account0 = {
+  "resourceType": "Account",
+  "id": pocketbaseId,
+  "name": "Account 0",
+  "versionId": 1,
+  "resource": {
+    "status": "active", // This field will be saved
+    "resourceType": "Account",
+    "id": pocketbaseId,
+    "name": "Account 0",
+  }
+};
 
 final account1 = {
   "resourceType": "Account",
