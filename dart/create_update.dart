@@ -10,10 +10,10 @@ Future<void> main() async {
   print('Creating or updating accounts...');
   // await createOrUpdateRecord(pb, account1);
 
+  await createOrUpdateRecord(pb, account1);
   await createOrUpdateRecord(pb, account2);
-  print('Account 1 created or updated successfully.');
-  await createOrUpdateRecord(pb, account2);
-  // await createOrUpdateRecord(pb, bp);
+  await createOrUpdateRecord(pb, account3);
+  await createOrUpdateRecord(pb, account4);
 
   // Print a message to confirm the operation
   print('Accounts created or updated successfully.');
@@ -50,18 +50,16 @@ Future<void> createOrUpdateRecord(
 final String pocketbaseId = '4260a7372075e64';
 //PocketbaseId.generate();
 
-// Define the account records
 final account1 = {
   "resourceType": "Account",
   "id": pocketbaseId,
   "name": "Account 1",
   "versionId": 1,
   "resource": {
+    "status": "active", // This field will be saved
     "resourceType": "Account",
-    "status": "active",
     "id": pocketbaseId,
-    "name": "Account 1",
-    "notAField": "This field will not be saved"
+    "name": "Account 1"
   }
 };
 
@@ -78,6 +76,30 @@ final account2 = {
   }
 };
 
+final account3 = {
+  "resourceType": "Account",
+  "id": pocketbaseId,
+  "name": "Account 3",
+  "versionId": 1,
+  "resource": {
+    "status": "active", // This field will be saved
+    "resourceType": "Account",
+    "id": pocketbaseId,
+    "name": "Account 3"
+  }
+};
+final account4 = {
+  "resourceType": "Account",
+  "id": pocketbaseId,
+  "name": "Account 4",
+  "versionId": 1,
+  "resource": {
+    "status": "active", // This field will be saved
+    "resourceType": "Account",
+    "id": pocketbaseId,
+    "name": "Account 4"
+  }
+};
 final bp = {
   "resourceType": "BiologicallyDerivedProduct",
   "id": pocketbaseId,

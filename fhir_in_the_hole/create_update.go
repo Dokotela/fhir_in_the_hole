@@ -22,6 +22,7 @@ func handleResourceCreation(app *pocketbase.PocketBase, e *core.ModelEvent) erro
 
 	collectionName := resource.Collection().Name
 	if !isVersionedCollection(app, collectionName) {
+		log.Printf("collection is not versioned")
 		return nil
 	}
 
@@ -70,6 +71,8 @@ func handleResourceCreation(app *pocketbase.PocketBase, e *core.ModelEvent) erro
 
 func handleResourceUpdate(app *pocketbase.PocketBase, e *core.ModelEvent) error {
 	resource, ok := e.Model.(*models.Record)
+
+	log.Printf("resource: %v", resource)
 	if !ok {
 		log.Printf("resource is not of type Record")
 		return nil
@@ -87,7 +90,6 @@ func handleResourceUpdate(app *pocketbase.PocketBase, e *core.ModelEvent) error 
 		return fmt.Errorf("failed to fetch existing resource: %w", err)
 	}
 
-	// Debug statement to check existing resource
 	existingResourceJson, _ := json.Marshal(existingResource)
 	log.Printf("existingResource before update: %s", string(existingResourceJson))
 
@@ -116,23 +118,40 @@ func handleResourceUpdate(app *pocketbase.PocketBase, e *core.ModelEvent) error 
 		}
 	}
 
-	historyResource := models.NewRecord(historyCollection)
-	existingData := existingResource.SchemaData()
-	for key, value := range existingData {
-		log.Printf("key: %s, value: %v", key, value)
-		historyResource.Set(key, value)
+	historicalResourceVersion := models.NewRecord(historyCollection)
+	historicalResourceVersion.Set("fhirId", existingResource.Id)
+	historicalResourceVersion.Set("resourceType", existingResource.Get("resourceType"))
+	historicalResourceVersion.Set("versionId", existingResource.GetInt("versionId"))
+	historicalResourceVersion.Set("resource", existingResource.Get("resource"))
+	historicalResourceVersion.Set("createdAt", existingResource.Get("createdAt"))
+	historicalResourceVersion.Set("updatedAt", existingResource.Get("updatedAt"))
+
+	// Debugging: Check values before saving
+	historicalResourceVersionJsonBeforeSave, _ := json.Marshal(historicalResourceVersion)
+	log.Printf("historicalResourceVersion before save: %s", string(historicalResourceVersionJsonBeforeSave))
+
+	// Check the schema of the history collection before saving
+	historyCollectionSchemaJson, _ := json.Marshal(historyCollection.Schema)
+	log.Printf("history collection schema before save: %s", string(historyCollectionSchemaJson))
+
+	// Check if the saved record matches the expected versionId
+	savedResourceVersion, err := app.Dao().FindRecordById(historyCollection.Name, historicalResourceVersion.Id)
+	if err != nil {
+		log.Printf("failed to fetch saved resource: %v", err)
+		return fmt.Errorf("failed to fetch saved resource: %w", err)
 	}
 
-	historyResource.Set("fhirId", existingResource.Get("id"))
-	// Debug statement to check history resource before saving
-	historyResourceJson, _ := json.Marshal(historyResource)
-	log.Printf("historyResource to be saved: %s", string(historyResourceJson))
+	historicalResourceVersionJsonAfterSave, _ := json.Marshal(historicalResourceVersion)
+	log.Printf("historicalResourceVersion after save: %s", string(historicalResourceVersionJsonAfterSave))
 
-	if err := app.Dao().SaveRecord(historyResource); err != nil {
-		log.Printf("failed to save resource to history table: %v", err)
-		return fmt.Errorf("failed to save resource to history table: %w", err)
+	// Validate versionId consistency
+	expectedVersionId := historicalResourceVersion.GetInt("versionId")
+	actualVersionId := savedResourceVersion.GetInt("versionId")
+	if expectedVersionId != actualVersionId {
+		log.Printf("versionId mismatch detected. Expected: %d, Found: %d", expectedVersionId, actualVersionId)
 	}
 
+	// Validate the resource data
 	resourceField := resource.Get("resource")
 	var resourceData []byte
 	switch v := resourceField.(type) {
@@ -142,7 +161,6 @@ func handleResourceUpdate(app *pocketbase.PocketBase, e *core.ModelEvent) error 
 		return fmt.Errorf("resource field is not of expected type")
 	}
 
-	// Validate the resource data
 	if err := validateFHIRResource(resourceData); err != nil {
 		log.Printf("validation error: %v", err)
 		return fmt.Errorf("validation error: %w", err)
@@ -152,7 +170,11 @@ func handleResourceUpdate(app *pocketbase.PocketBase, e *core.ModelEvent) error 
 	newVersionId := currentVersionId + 1
 	resource.Set("versionId", newVersionId)
 
-	log.Printf("updating resource with new versionId: %d", newVersionId)
+	saveErr := app.Dao().SaveRecord(historicalResourceVersion)
+	if saveErr != nil {
+		log.Printf("failed to save resource to history table: %v", saveErr)
+		return fmt.Errorf("failed to save resource to history table: %w", saveErr)
+	}
 
 	switch v := resourceField.(type) {
 	case types.JsonRaw:
@@ -177,8 +199,6 @@ func handleResourceUpdate(app *pocketbase.PocketBase, e *core.ModelEvent) error 
 	default:
 		return fmt.Errorf("unexpected type for resource field: %v", reflect.TypeOf(resourceField))
 	}
-
-	log.Printf("resource updated successfully with new versionId: %d", newVersionId)
 
 	return nil
 }
