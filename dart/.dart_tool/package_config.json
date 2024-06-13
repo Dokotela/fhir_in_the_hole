@@ -350,13 +350,13 @@
       "languageVersion": "2.19"
     },
     {
-      "name": "fhir_in_the_whole",
+      "name": "pocket_fhir",
       "rootUri": "../",
       "packageUri": "lib/",
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2024-06-09T22:54:02.205399Z",
+  "generated": "2024-06-13T21:15:28.212813Z",
   "generator": "pub",
   "generatorVersion": "3.4.1",
   "flutterRoot": "file:///home/grey/dev/flutter",

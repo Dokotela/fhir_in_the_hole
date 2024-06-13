@@ -14,10 +14,10 @@ rm go.sum
 
 rm fith
 
-go mod fith myapp && go mod tidy
+go mod init pocketfhir && go mod tidy
 
 CGO_ENABLED=0 go build 
 
-./fith serve
+./pocketfhir serve
 
 cd ..
